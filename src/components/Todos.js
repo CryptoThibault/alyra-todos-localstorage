@@ -38,7 +38,7 @@ const Todos = () => {
 
   useEffect(() => {
     const completedCount = todos.filter((el) => el.isCompleted).length
-    document.title = completedCount !== todos.length ? `Tâches encore présentes : ${todos.length - completedCount}` : 'Tâches terminés !'
+    document.title = completedCount !== todos.length ? `Tâches restantes: ${todos.length - completedCount}` : 'Tâches terminés !'
     localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
 
