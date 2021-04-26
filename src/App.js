@@ -12,11 +12,11 @@ function App() {
   }, [darkMode])
 
   return (
-    <div className={darkMode ? "bg-dark text-white" : "bg-light"}>
+    <div className={`${darkMode ? "bg-dark text-white" : "bg-light"} min-vh-100`}>
       <div className="container">
         <button onClick={handleButtonClick}>Dark Mode</button>
         <h1 className="text-center">ToDos App</h1>
-        <Todos />
+        <Todos darkMode={darkMode} />
       </div>
     </div>
   )
