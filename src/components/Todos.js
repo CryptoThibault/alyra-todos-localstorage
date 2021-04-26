@@ -33,7 +33,7 @@ const initialTodos = [
 ]
 
 const Todos = () => {
-  const [todos, setTodos] = useState(initialTodos)
+  const [todos, setTodos] = useState(JSON.parse(localStorage.todos), initialTodos)
   const [filter, setFilter] = useState("all")
 
   useEffect(() => {
