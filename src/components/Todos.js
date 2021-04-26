@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import TodosList from "./TodosList"
 import SelectTodos from "./SelectTodos"
 import AddTodoForm from "./AddTodoForm"
@@ -35,6 +35,12 @@ const initialTodos = [
 const Todos = () => {
   const [todos, setTodos] = useState(initialTodos)
   const [filter, setFilter] = useState("all")
+
+  useEffect(() => {
+    const completedCount = todos.filter((el) => el.isCompleted).length
+    document.title = completedCount !== todos.length ? `Tâches encore présentes : ${todos.length - completedCount}` : 'Tâches terminés !'
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
 
   const addTodo = (text) => {
     const newTodo = {
