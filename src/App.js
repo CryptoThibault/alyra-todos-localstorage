@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import Todos from "./components/Todos"
 
 function App() {
-  const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.mode))
+  const initialMode = () => JSON.parse(localStorage.getItem("mode")) || false
+  const [darkMode, setDarkMode] = useState(initialMode)
   const handleButtonClick = () => {
     setDarkMode(!darkMode);
   };
